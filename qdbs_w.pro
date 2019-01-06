@@ -37,7 +37,10 @@ SOURCES += \
     purchase_record.cpp \
     medicine_selecter.cpp \
     quality_record.cpp \
-    application_record.cpp
+    application_record.cpp \
+    in_recorder.cpp \
+    out_recorder.cpp \
+    pur_selecter.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -51,7 +54,10 @@ HEADERS += \
     purchase_record.h \
     medicine_selecter.h \
     quality_record.h \
-    application_record.h
+    application_record.h \
+    in_recorder.h \
+    out_recorder.h \
+    pur_selecter.h
 
 FORMS += \
         mainwindow.ui \
@@ -61,7 +67,10 @@ FORMS += \
     purchase_record.ui \
     medicine_selecter.ui \
     quality_record.ui \
-    application_record.ui
+    application_record.ui \
+    in_recorder.ui \
+    out_recorder.ui \
+    pur_selecter.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

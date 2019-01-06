@@ -51,7 +51,10 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QListView" name="listView">
+     <widget class="QListView" name="watcher">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
       </property>

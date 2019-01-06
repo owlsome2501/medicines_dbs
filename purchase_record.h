@@ -3,6 +3,14 @@
 
 #include <QWidget>
 
+#include "medicine_selecter.h"
+#include "staff_mngr.h"
+#include <QDate>
+#include <QDialog>
+#include <QDoubleValidator>
+#include <QIntValidator>
+#include <QMessageBox>
+
 namespace Ui
 {
 class purchase_record;
@@ -19,8 +27,11 @@ class purchase_record : public QWidget
   private slots:
 	void on_select_mid_clicked();
 
+	void on_commit_clicked();
+
   private:
 	Ui::purchase_record *ui;
+	QDate date;
 };
 
 #endif // PURCHASE_RECORD_H

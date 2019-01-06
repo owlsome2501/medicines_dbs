@@ -2,8 +2,7 @@
 #include "ui_login_dialog.h"
 
 login_dialog::login_dialog(QWidget *parent)
-	: QDialog(parent), staff(staff_mngr_ptr(new staff_mngr)),
-	  ui(new Ui::login_dialog)
+	: QDialog(parent), ui(new Ui::login_dialog)
 {
 	ui->setupUi(this);
 	QRegExp password_rgx("[a-zA-Z0-9]{16}");
@@ -20,10 +19,10 @@ void login_dialog::login()
 {
 	int id = (ui->staff_id->text()).toInt();
 	QString password = ui->password->text();
-	if (staff->login(id, password)) {
+	if (staff_mngr::login(id, password)) {
 		accept();
 	} else {
-		QMessageBox::warning(this, "Waring", "user name or password error!",
+		QMessageBox::warning(this, "错误", "用户名或者密码不正确",
 							 QMessageBox::Yes);
 	}
 }

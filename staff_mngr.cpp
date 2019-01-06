@@ -1,8 +1,10 @@
 #include "staff_mngr.h"
 
-staff_mngr::staff_mngr() {}
+int staff_mngr::id;
+staff_mngr::Role staff_mngr::role;
+QString staff_mngr::name;
 
-bool staff_mngr::login(int id, QString password)
+bool staff_mngr::login(int _id, QString password)
 {
 	bool result = false;
 	QSqlDatabase db = database_mngr::get_connection();
@@ -10,13 +12,14 @@ bool staff_mngr::login(int id, QString password)
 		qDebug() << "connected";
 		QSqlQuery query;
 		query.prepare("select * from staff where id = ?");
-		query.addBindValue(id);
+		query.addBindValue(_id);
 		query.exec();
 		if (query.next()) {
 			QString passwd_real = query.value(2).toString();
 			if (password == passwd_real) {
 				name = query.value(1).toString();
 				role = static_cast<Role>(query.value(3).toInt());
+				id = _id;
 				result = true;
 			}
 		}
@@ -25,6 +28,8 @@ bool staff_mngr::login(int id, QString password)
 	return result;
 }
 
-QString staff_mngr::getName() const { return name; }
+int staff_mngr::getId() { return id; }
 
-staff_mngr::Role staff_mngr::getRole() const { return role; }
+QString staff_mngr::getName() { return name; }
+
+staff_mngr::Role staff_mngr::getRole() { return role; }

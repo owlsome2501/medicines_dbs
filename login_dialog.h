@@ -8,7 +8,6 @@
 #include <QMessageBox>
 #include <QRegExp>
 #include <QRegExpValidator>
-#include <QSharedPointer>
 #include <QValidator>
 
 namespace Ui
@@ -21,8 +20,6 @@ class login_dialog : public QDialog
 	Q_OBJECT
 
   public:
-	typedef QSharedPointer<staff_mngr> staff_mngr_ptr;
-	staff_mngr_ptr staff;
 	explicit login_dialog(QWidget *parent = nullptr);
 	~login_dialog();
 

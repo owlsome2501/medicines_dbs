@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	}
 	login_dialog logind;
 	if (logind.exec() == QDialog::Accepted) {
-		MainWindow w(logind.staff);
+		MainWindow w;
 		w.show();
 		return a.exec();
 	}

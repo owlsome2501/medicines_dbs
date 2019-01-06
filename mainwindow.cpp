@@ -1,13 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QSharedPointer<staff_mngr> _staff, QWidget *parent)
-	: QMainWindow(parent), ui(new Ui::MainWindow), staff(_staff)
+MainWindow::MainWindow(QWidget *parent)
+	: QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
-	qDebug() << "staff_name: " << staff->getName();
-	qDebug() << "staff_role: " << static_cast<int>(staff->getRole());
-	switch (staff->getRole()) {
+	qDebug() << "staff_name: " << staff_mngr::getName();
+	qDebug() << "staff_role: " << static_cast<int>(staff_mngr::getRole());
+	switch (staff_mngr::getRole()) {
 	case staff_mngr::Role::ADMIN: {
 		ui->overview->setEnabled(true);
 		ui->purchase_analysis->setEnabled(true);
@@ -34,6 +34,8 @@ MainWindow::MainWindow(QSharedPointer<staff_mngr> _staff, QWidget *parent)
 	main_tab = ui->main_tab;
 	connect(main_tab, &QTabWidget::tabCloseRequested, this,
 			&MainWindow::on_tabclose);
+
+	watcher = ui->watcher;
 }
 
 MainWindow::~MainWindow() { delete ui; }
@@ -87,4 +89,18 @@ void MainWindow::on_application_record_triggered()
 	qDebug() << "open application_recorder";
 	application_record *apr = new application_record;
 	add_widget(apr, "申请用药");
+}
+
+void MainWindow::on_in_record_triggered()
+{
+	qDebug() << "open in_recorder";
+	in_recorder *inr = new in_recorder;
+	add_widget(inr, "入库单");
+}
+
+void MainWindow::on_out_record_triggered()
+{
+	qDebug() << "open out_recorder";
+	out_recorder *otr = new out_recorder;
+	add_widget(otr, "出库单");
 }

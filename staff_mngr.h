@@ -13,15 +13,16 @@ class staff_mngr
 	enum struct Role : int { ADMIN, MANAGER, INSPECTOR, APPLICANT };
 
   public:
-	staff_mngr();
-	bool login(int id, QString password);
+	static bool login(int id, QString password);
 
-	QString getName() const;
-	Role getRole() const;
+	static QString getName();
+	static Role getRole();
+	static int getId();
 
   private:
-	QString name;
-	Role role;
+	static QString name;
+	static int id;
+	static Role role;
 };
 
 #endif // STAFF_MNGR_H
