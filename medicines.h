@@ -12,6 +12,7 @@ class medicines
   public:
 	medicines();
 	static QSqlQueryModel *get_overview_model();
+	static QSqlQueryModel *get_analysis_model();
 };
 
 #endif // MEDICINES_H

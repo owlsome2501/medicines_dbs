@@ -22,7 +22,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-CONFIG += c++11
+CONFIG += c++14
 
 SOURCES += \
         main.cpp \
@@ -32,7 +32,12 @@ SOURCES += \
     database_mngr.cpp \
     medicines.cpp \
     mate_handler.cpp \
-    overview.cpp
+    overview.cpp \
+    analysis.cpp \
+    purchase_record.cpp \
+    medicine_selecter.cpp \
+    quality_record.cpp \
+    application_record.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,12 +46,22 @@ HEADERS += \
     database_mngr.h \
     medicines.h \
     mate_handler.h \
-    overview.h
+    overview.h \
+    analysis.h \
+    purchase_record.h \
+    medicine_selecter.h \
+    quality_record.h \
+    application_record.h
 
 FORMS += \
         mainwindow.ui \
     login_dialog.ui \
-    overview.ui
+    overview.ui \
+    analysis.ui \
+    purchase_record.ui \
+    medicine_selecter.ui \
+    quality_record.ui \
+    application_record.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

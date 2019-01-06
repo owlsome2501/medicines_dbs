@@ -1,7 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "analysis.h"
+#include "application_record.h"
 #include "overview.h"
+#include "purchase_record.h"
+#include "quality_record.h"
 #include "staff_mngr.h"
 #include <QAction>
 #include <QDebug>
@@ -28,6 +32,12 @@ class MainWindow : public QMainWindow
   private slots:
 	void on_tabclose(int index);
 	void on_overview_triggered();
+	void on_purchase_analysis_triggered();
+	void on_purchase_record_triggered();
+
+	void on_quality_record_triggered();
+
+	void on_application_record_triggered();
 
   private:
 	Ui::MainWindow *ui;

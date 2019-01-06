@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>overview</class>
- <widget class="QWidget" name="overview">
+ <class>analysis</class>
+ <widget class="QWidget" name="analysis">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -24,6 +24,12 @@
      </property>
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
      </property>
     </widget>
    </item>

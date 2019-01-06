@@ -1,7 +1,6 @@
 #ifndef OVERVIEW_H
 #define OVERVIEW_H
 
-#include "mate_handler.h"
 #include "medicines.h"
 #include <QMessageBox>
 #include <QSqlTableModel>
@@ -12,12 +11,12 @@ namespace Ui
 class overview;
 }
 
-class overview : public mate_handler
+class overview : public QWidget
 {
 	Q_OBJECT
 
   public:
-	explicit overview(mate_handler *parent = nullptr);
+	explicit overview(QWidget *parent = nullptr);
 	~overview();
 
   private:

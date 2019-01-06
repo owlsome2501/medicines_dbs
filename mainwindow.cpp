@@ -60,3 +60,31 @@ void MainWindow::on_overview_triggered()
 	overview *ov = new overview;
 	add_widget(ov, "概览");
 }
+
+void MainWindow::on_purchase_analysis_triggered()
+{
+	qDebug() << "open analysis";
+	analysis *ana = new analysis;
+	add_widget(ana, "采购分析");
+}
+
+void MainWindow::on_purchase_record_triggered()
+{
+	qDebug() << "open purchase_record";
+	purchase_record *pur = new purchase_record;
+	add_widget(pur, "申请采购");
+}
+
+void MainWindow::on_quality_record_triggered()
+{
+	qDebug() << "open qulity_recoder";
+	quality_record *qur = new quality_record;
+	add_widget(qur, "质检报告");
+}
+
+void MainWindow::on_application_record_triggered()
+{
+	qDebug() << "open application_recorder";
+	application_record *apr = new application_record;
+	add_widget(apr, "申请用药");
+}
