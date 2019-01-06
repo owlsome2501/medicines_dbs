@@ -6,6 +6,12 @@ login_dialog::login_dialog(QWidget *parent)
 	  ui(new Ui::login_dialog)
 {
 	ui->setupUi(this);
+	QRegExp password_rgx("[a-zA-Z0-9]{16}");
+	QValidator *password_v = new QRegExpValidator(password_rgx, this);
+	ui->password->setValidator(password_v);
+	QRegExp id_rgx("^[0-9]{6}");
+	QValidator *id_v = new QRegExpValidator(id_rgx, this);
+	ui->staff_id->setValidator(id_v);
 }
 
 login_dialog::~login_dialog() { delete ui; }

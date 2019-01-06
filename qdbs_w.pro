@@ -29,17 +29,24 @@ SOURCES += \
         mainwindow.cpp \
     login_dialog.cpp \
     staff_mngr.cpp \
-    database_mngr.cpp
+    database_mngr.cpp \
+    medicines.cpp \
+    mate_handler.cpp \
+    overview.cpp
 
 HEADERS += \
         mainwindow.h \
     login_dialog.h \
     staff_mngr.h \
-    database_mngr.h
+    database_mngr.h \
+    medicines.h \
+    mate_handler.h \
+    overview.h
 
 FORMS += \
         mainwindow.ui \
-    login_dialog.ui
+    login_dialog.ui \
+    overview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -6,7 +6,10 @@
 #include <QDialog>
 #include <QKeyEvent>
 #include <QMessageBox>
+#include <QRegExp>
+#include <QRegExpValidator>
 #include <QSharedPointer>
+#include <QValidator>
 
 namespace Ui
 {
