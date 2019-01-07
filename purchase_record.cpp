@@ -30,12 +30,12 @@ void purchase_record::on_commit_clicked()
 		ui->price->text().length() > 0 && ui->supplier->text().length() > 0) {
 		int num = ui->num->text().toInt();
 		double price = ui->price->text().toDouble();
-		if (!medicines::add_pur(ui->mid->text(), num, price,
-								ui->supplier->text(), date, staff_mngr::getId())
-				 .isValid())
+		if (medicines::add_pur(ui->mid->text(), num, price,
+							   ui->supplier->text(), date, staff_mngr::getId())
+				.isValid()) {
+			QMessageBox::critical(this, "错误", "添加失败", QMessageBox::Yes);
+		} else
 			QMessageBox::information(this, "提示", "添加成功",
 									 QMessageBox::Yes);
-		else
-			QMessageBox::critical(this, "错误", "添加失败", QMessageBox::Yes);
 	}
 }

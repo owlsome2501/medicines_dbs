@@ -13,6 +13,7 @@
 #include <QAction>
 #include <QDebug>
 #include <QMainWindow>
+#include <QTableView>
 
 namespace Ui
 {
@@ -43,8 +44,13 @@ class MainWindow : public QMainWindow
   private:
 	Ui::MainWindow *ui;
 	QTabWidget *main_tab;
-	QListView *watcher;
+	QTableView *watcher;
+	QSqlQueryModel *model;
+	int timer;
 	QWidget *add_widget(QWidget *widget, QString title);
+
+  protected:
+	void timerEvent(QTimerEvent *event);
 };
 
 #endif // MAINWINDOW_H

@@ -8,7 +8,7 @@ overview::overview(QWidget *parent) : QWidget(parent), ui(new Ui::overview)
 	if (table_model) {
 		ui->table->setModel(table_model);
 		ui->table->horizontalHeader()->setSectionResizeMode(
-			QHeaderView::Stretch);
+			QHeaderView::ResizeToContents);
 	} else
 		QMessageBox::warning(this, "错误", "获取列表失败", QMessageBox::Yes);
 }

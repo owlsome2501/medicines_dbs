@@ -6,19 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>638</width>
-    <height>577</height>
+    <width>800</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout" rowstretch="3,1" columnstretch="0">
-    <property name="topMargin">
-     <number>9</number>
-    </property>
-    <item row="0" column="0">
+   <layout class="QVBoxLayout" name="vlayout">
+    <item>
      <widget class="QTabWidget" name="main_tab">
       <property name="tabPosition">
        <enum>QTabWidget::North</enum>
@@ -42,21 +39,36 @@
        <attribute name="title">
         <string>welcome</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_3">
-        <item row="0" column="0">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
          <widget class="QCalendarWidget" name="calendarWidget"/>
         </item>
        </layout>
       </widget>
      </widget>
     </item>
-    <item row="1" column="0">
-     <widget class="QListView" name="watcher">
-      <property name="enabled">
-       <bool>true</bool>
+    <item>
+     <widget class="QTableView" name="watcher">
+      <property name="frameShape">
+       <enum>QFrame::Box</enum>
       </property>
       <property name="frameShadow">
        <enum>QFrame::Plain</enum>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
       </property>
      </widget>
     </item>
@@ -67,7 +79,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>638</width>
+     <width>800</width>
      <height>30</height>
     </rect>
    </property>
@@ -93,6 +105,7 @@
     </property>
     <addaction name="overview"/>
     <addaction name="purchase_analysis"/>
+    <addaction name="wait_list"/>
     <addaction name="separator"/>
     <addaction name="sync"/>
    </widget>
@@ -170,6 +183,11 @@
    </property>
    <property name="shortcut">
     <string>F5</string>
+   </property>
+  </action>
+  <action name="wait_list">
+   <property name="text">
+    <string>出入库等待队列</string>
    </property>
   </action>
  </widget>
