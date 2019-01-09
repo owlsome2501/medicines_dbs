@@ -32,6 +32,7 @@ class medicines
 							 int staff, QDate date);
 	static QSqlQueryModel *get_inr_info(int id);
 	static QSqlError commit_inr(int id, QAbstractItemModel *model);
+	static QSqlError abort_inr(int id);
 };
 
 #endif // MEDICINES_H

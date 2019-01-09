@@ -130,3 +130,17 @@ void in_recorder::on_commit_clicked()
 		QMessageBox::information(this, "提示", "入库成功", QMessageBox::Yes);
 	}
 }
+
+void in_recorder::on_abort_clicked()
+{
+	if (medicines::abort_inr(inr).isValid()) {
+		QMessageBox::critical(this, "错误", "请求失败", QMessageBox::Yes);
+	} else {
+		ui->commit->setEnabled(false);
+		ui->abort->setEnabled(false);
+		ui->insert->setEnabled(false);
+		ui->rollback->setEnabled(false);
+		emit commited();
+		QMessageBox::information(this, "提示", "已拒绝", QMessageBox::Yes);
+	}
+}

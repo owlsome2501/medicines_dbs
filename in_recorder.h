@@ -36,6 +36,8 @@ class in_recorder : public QWidget
 	void update_commit_btn();
 	void on_commit_clicked();
 
+	void on_abort_clicked();
+
   private:
 	Ui::in_recorder *ui;
 	int inr;

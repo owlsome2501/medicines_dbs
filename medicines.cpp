@@ -412,3 +412,32 @@ QSqlError medicines::commit_inr(int id, QAbstractItemModel *model)
 	}
 	return err;
 }
+
+
+QSqlError medicines::abort_inr(int id)
+{
+	QSqlDatabase db = database_mngr::get_connection();
+	QSqlError err;
+	if (db.isOpen()) {
+		db.transaction();
+		QSqlQuery query;
+		query.prepare(
+			"update in_record, purchase_record "
+			"set in_record.state = 3, purchase_record.state = 3 "
+			"where in_record.purchase_record = purchase_record.id and "
+			"in_record.id = ?");
+		query.addBindValue(id);
+		query.exec();
+		err = query.lastError();
+		if (err.isValid())
+			db.rollback();
+		else
+			db.commit();
+	} else {
+		err = db.lastError();
+	}
+	if (err.isValid()) {
+		qDebug() << err;
+	}
+	return err;
+}
