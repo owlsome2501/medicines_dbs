@@ -9,8 +9,8 @@ purchase_record::purchase_record(QWidget *parent)
 	ui->date->setText(date.toString("yyyy.MM.dd"));
 	ui->staff->setText(staff_mngr::getName());
 
-	ui->num->setValidator(new QIntValidator(this));
-	ui->price->setValidator(new QDoubleValidator(this));
+	ui->num->setValidator(new QIntValidator(1, 10000, this));
+	ui->price->setValidator(new QDoubleValidator(0, 1000000, 2, this));
 }
 
 purchase_record::~purchase_record() { delete ui; }

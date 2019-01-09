@@ -13,6 +13,7 @@
 #include <QAction>
 #include <QDebug>
 #include <QMainWindow>
+#include <QModelIndex>
 #include <QTableView>
 
 namespace Ui
@@ -36,10 +37,10 @@ class MainWindow : public QMainWindow
 	void on_overview_triggered();
 	void on_purchase_analysis_triggered();
 	void on_purchase_record_triggered();
-	void on_quality_record_triggered();
 	void on_application_record_triggered();
 	void on_in_record_triggered();
 	void on_out_record_triggered();
+	void watcher_enter(const QModelIndex &index);
 
   private:
 	Ui::MainWindow *ui;

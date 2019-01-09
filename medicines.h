@@ -2,6 +2,7 @@
 #define MEDICINES_H
 
 #include "database_mngr.h"
+#include <QAbstractItemModel>
 #include <QDate>
 #include <QDebug>
 #include <QSqlDatabase>
@@ -23,7 +24,14 @@ class medicines
 	static QSqlQueryModel *get_pur_model();
 	static QSqlQueryModel *get_io_wait_mngr_model();
 	static QSqlError add_inr(QString mid, int batch_num, int all_num,
-							 QDate date, int staff, int pur_id);
+							 QDate date, int staff, int pur_id,
+							 QDate production_date);
+	static QSqlQueryModel *get_qc_wait_model();
+	static QSqlQueryModel *get_io_info_for_qc(int type, int id);
+	static QSqlError add_qur(int type, int io_id, int quality, QString detail,
+							 int staff, QDate date);
+	static QSqlQueryModel *get_inr_info(int id);
+	static QSqlError commit_inr(int id, QAbstractItemModel *model);
 };
 
 #endif // MEDICINES_H

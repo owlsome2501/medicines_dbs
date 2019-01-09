@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class out_recorder;
 }
 
@@ -11,11 +12,12 @@ class out_recorder : public QWidget
 {
 	Q_OBJECT
 
-	public:
-	explicit out_recorder(QWidget *parent = nullptr);
+  public:
+	explicit out_recorder(QWidget *parent = nullptr, int otr = -1);
 	~out_recorder();
 
-	private:
+  private:
+	int otr;
 	Ui::out_recorder *ui;
 };
 

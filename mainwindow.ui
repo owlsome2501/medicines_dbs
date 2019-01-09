@@ -97,7 +97,6 @@
     <addaction name="out_record"/>
     <addaction name="application_record"/>
     <addaction name="purchase_record"/>
-    <addaction name="quality_record"/>
    </widget>
    <widget class="QMenu" name="query">
     <property name="title">
@@ -105,7 +104,6 @@
     </property>
     <addaction name="overview"/>
     <addaction name="purchase_analysis"/>
-    <addaction name="wait_list"/>
     <addaction name="separator"/>
     <addaction name="sync"/>
    </widget>
@@ -153,14 +151,6 @@
     <string>采购单</string>
    </property>
   </action>
-  <action name="quality_record">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>质检单</string>
-   </property>
-  </action>
   <action name="overview">
    <property name="enabled">
     <bool>false</bool>
@@ -183,11 +173,6 @@
    </property>
    <property name="shortcut">
     <string>F5</string>
-   </property>
-  </action>
-  <action name="wait_list">
-   <property name="text">
-    <string>出入库等待队列</string>
    </property>
   </action>
  </widget>
