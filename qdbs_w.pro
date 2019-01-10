@@ -34,7 +34,10 @@ SOURCES += \
     application_record.cpp \
     in_recorder.cpp \
     out_recorder.cpp \
-    pur_selecter.cpp
+    pur_selecter.cpp \
+    apr_selecter.cpp \
+    inv_selecter.cpp \
+    storage_select.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -51,7 +54,10 @@ HEADERS += \
     application_record.h \
     in_recorder.h \
     out_recorder.h \
-    pur_selecter.h
+    pur_selecter.h \
+    apr_selecter.h \
+    inv_selecter.h \
+    storage_select.h
 
 FORMS += \
         mainwindow.ui \
@@ -64,7 +70,10 @@ FORMS += \
     application_record.ui \
     in_recorder.ui \
     out_recorder.ui \
-    pur_selecter.ui
+    pur_selecter.ui \
+    apr_selecter.ui \
+    inv_selecter.ui \
+    storage_select.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

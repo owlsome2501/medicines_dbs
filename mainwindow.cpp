@@ -149,6 +149,7 @@ void MainWindow::on_out_record_triggered()
 {
 	qDebug() << "open out_recorder";
 	out_recorder *otr = new out_recorder(this);
+	connect(otr, &out_recorder::commited, this, &MainWindow::sync);
 	add_widget(otr, "出库单");
 }
 
@@ -178,6 +179,7 @@ void MainWindow::watcher_enter(const QModelIndex &index)
 			connect(inr, &in_recorder::commited, this, &MainWindow::sync);
 		} else if (type == "出库") {
 			out_recorder *otr = new out_recorder(this, id);
+			connect(otr, &out_recorder::commited, this, &MainWindow::sync);
 			add_widget(otr, "出库单");
 		}
 		break;

@@ -22,6 +22,7 @@ void purchase_record::on_select_mid_clicked()
 		ui->mid->setText(mselecter.getMid());
 		ui->ap_name->setText(mselecter.getAp_name());
 	}
+	mselecter.deleteLater();
 }
 
 void purchase_record::on_commit_clicked()
@@ -34,8 +35,10 @@ void purchase_record::on_commit_clicked()
 							   ui->supplier->text(), date, staff_mngr::getId())
 				.isValid()) {
 			QMessageBox::critical(this, "错误", "添加失败", QMessageBox::Yes);
-		} else
+		} else {
+			ui->commit->setEnabled(false);
 			QMessageBox::information(this, "提示", "添加成功",
 									 QMessageBox::Yes);
+		}
 	}
 }

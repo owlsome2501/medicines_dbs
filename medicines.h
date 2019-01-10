@@ -23,7 +23,7 @@ class medicines
 							 QString supplier, QDate date, int staff);
 	static QSqlQueryModel *get_pur_model();
 	static QSqlQueryModel *get_io_wait_mngr_model();
-	static QSqlError add_inr(QString mid, int batch_num, int all_num,
+	static QSqlError add_inr(QString mid, QString batch_num, int all_num,
 							 QDate date, int staff, int pur_id,
 							 QDate production_date);
 	static QSqlQueryModel *get_qc_wait_model();
@@ -33,6 +33,16 @@ class medicines
 	static QSqlQueryModel *get_inr_info(int id);
 	static QSqlError commit_inr(int id, QAbstractItemModel *model);
 	static QSqlError abort_inr(int id);
+	static QSqlError add_apr(QString mid, int num, QDate date,
+							 QString destination, int staff);
+	static QSqlQueryModel *get_apr_model();
+	static QSqlQueryModel *searh_storage(QString batch_num, QString mid);
+	static QSqlQueryModel *searh_inv(QString mid);
+	static QSqlError add_otr(QString mid, QString batch_num, int all_num,
+							 QDate date, int staff, int apr_id);
+	static QSqlQueryModel *get_otr_info(int id);
+	static QSqlError commit_otr(int id, QAbstractItemModel *model);
+	static QSqlError abort_otr(int id);
 };
 
 #endif // MEDICINES_H

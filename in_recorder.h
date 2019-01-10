@@ -35,7 +35,6 @@ class in_recorder : public QWidget
 	void on_rollback_clicked();
 	void update_commit_btn();
 	void on_commit_clicked();
-
 	void on_abort_clicked();
 
   private:

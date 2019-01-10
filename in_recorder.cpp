@@ -36,6 +36,8 @@ in_recorder::in_recorder(QWidget *parent, int _inr)
 			ui->production_date->setDate(rec.value(8).toDate());
 			ui->quality->setText(rec.value(9).toString());
 			ui->ap_name->setText(rec.value(10).toString());
+			ui->pur_num->setText(QString::number(rec.value(11).toInt()));
+			ui->goted->setText(QString::number(rec.value(12).toInt()));
 			model->deleteLater();
 			if (state == 0) {
 				ui->qur_id->setText("");
@@ -59,16 +61,27 @@ void in_recorder::on_select_pur_clicked()
 		ui->pur_id->setText(QString::number(pselecter.getPur_id()));
 		ui->mid->setText(pselecter.getMid());
 		ui->ap_name->setText(pselecter.getAp_name());
+		ui->pur_num->setText(QString::number(pselecter.getNum()));
+		ui->goted->setText(QString::number(pselecter.getGoted()));
 	}
+	pselecter.deleteLater();
 }
 
 void in_recorder::on_req_qur_clicked()
 {
 	if (ui->mid->text().length() > 0 && ui->batch_num->text().length() > 0 &&
 		ui->all_num->text().length() > 0) {
-		if (medicines::add_inr(ui->mid->text(), ui->batch_num->text().toInt(),
-							   ui->all_num->text().toInt(), date,
-							   staff_mngr::getId(), ui->pur_id->text().toInt(),
+		int num = ui->all_num->text().toInt();
+		int pur_num = ui->pur_num->text().toInt();
+		int goted = ui->goted->text().toInt();
+		if (num + goted > pur_num) {
+			QMessageBox::warning(this, "警告", "入库数量超过订单",
+								 QMessageBox::Yes);
+			return;
+		}
+		if (medicines::add_inr(ui->mid->text(), ui->batch_num->text(), num,
+							   date, staff_mngr::getId(),
+							   ui->pur_id->text().toInt(),
 							   ui->production_date->date())
 				.isValid()) {
 			QMessageBox::critical(this, "错误", "申请失败", QMessageBox::Yes);
@@ -95,15 +108,17 @@ void in_recorder::on_insert_clicked()
 	if (ui->wid->text().length() > 0 && ui->num->text().length() > 0) {
 		int wid = ui->wid->text().toInt();
 		int num = ui->num->text().toInt();
-		storage->insertRow(storage->rowCount());
-		storage->setItem(storage->rowCount() - 1, 0,
-						 new QTableWidgetItem(QString::number(wid)));
-		storage->setItem(storage->rowCount() - 1, 1,
-						 new QTableWidgetItem(QString::number(num)));
-		ui->wid->clear();
-		ui->num->clear();
-		storage_num_sum += num;
-		update_commit_btn();
+		if (num > 0) {
+			storage->insertRow(storage->rowCount());
+			storage->setItem(storage->rowCount() - 1, 0,
+							 new QTableWidgetItem(QString::number(wid)));
+			storage->setItem(storage->rowCount() - 1, 1,
+							 new QTableWidgetItem(QString::number(num)));
+			ui->wid->clear();
+			ui->num->clear();
+			storage_num_sum += num;
+			update_commit_btn();
+		}
 	}
 }
 
