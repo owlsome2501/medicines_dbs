@@ -25,7 +25,6 @@ SOURCES += \
     staff_mngr.cpp \
     database_mngr.cpp \
     medicines.cpp \
-    mate_handler.cpp \
     overview.cpp \
     analysis.cpp \
     purchase_record.cpp \
@@ -45,7 +44,6 @@ HEADERS += \
     staff_mngr.h \
     database_mngr.h \
     medicines.h \
-    mate_handler.h \
     overview.h \
     analysis.h \
     purchase_record.h \
